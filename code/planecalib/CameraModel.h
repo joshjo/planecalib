@@ -82,6 +82,25 @@ public:
 		return projectFromScaleSpace(pn);
 	}
 
+	float getMaxRadiusSq() const
+	{
+
+		float maxRadiusSq = 0;
+		// cv::Point2i corners[] = {cv::Point2i(0,0), cv::Point2i(0,mImageSize[1]),
+		// 		cv::Point2i(mImageSize[0], mImageSize[1]), cv::Point2i(mImageSize[1],0)};
+
+		
+		// for(int i=0; i<4; ++i)
+		// {
+		// 	const cv::Point2f xn = normalizePoint(unprojectToWorld(corners[i]));
+		// 	const float r2 = xn.x * xn.x + xn.y * xn.y;
+		// 	if(r2 > maxRadiusSq)
+		// 		maxRadiusSq = r2;
+		// }
+
+		return maxRadiusSq;
+	}
+
 	//Projects the point assuming focal lengths have already been applied
 	Eigen::Vector2f projectFromScaleSpace(const Eigen::Vector2f &pn) const
 	{
@@ -133,6 +152,11 @@ public:
 		xn[0] /= mFocalLengths[0];
 		xn[1] /= mFocalLengths[1];
 		return xn.homogeneous();
+	}
+
+	cv::Point2f normalizePoint(const Eigen::Vector3f & p) const
+	{
+		return cv::Point2f(p[0] / p[2], p[1] / p[2]);
 	}
 
 	Eigen::Vector2f unprojectToScaleSpace(const Eigen::Vector2f &p) const

@@ -54,6 +54,11 @@ public:
 	//	return cv::Matx33f(1, 0, 0, 0, cos(angle), -sin(angle), 0, sin(angle), cos(angle));
 	//}
 
+	// static cv::Point3f NormalizePoint(const cv::Vec4f &p)
+	// {
+	// 	return cv::Point3f(p[0]/p[3], p[1]/p[3], p[2]/p[3]);
+	// }
+
     static void DownsampleImage(const cv::Mat &img, cv::Mat &res, int count);
 };
 

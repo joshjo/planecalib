@@ -21,7 +21,9 @@ public:
 	EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
 	std::unique_ptr<Map> loadCalib(const std::string &filename);
-	std::unique_ptr<Map> loadValidation(const CameraModel &camera, const std::string &filename);
+	// std::unique_ptr<Map> loadValidation(const CameraModel &camera, const std::string &filename);
+	// void loadCalib(const std::string &filename);
+	void loadValidation(const CameraModel &camera, const std::string &filename);
 };
 
 }

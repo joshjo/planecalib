@@ -305,12 +305,14 @@ void MainWindow::loadBouguetCalib()
 {
 	const std::string kDefaultFilename("Calib_results.mat");
 	std::string filename;
-	std::cout << "Load Bouguet calib data\n" << "Enter filename ([ ]='" << kDefaultFilename << "'): ";;
-	std::cin >> filename;
-	if (filename.empty() || filename.size() == 1)
-		filename = kDefaultFilename;
+	std::cout << "Loading Bouguet Calib..." << std::endl;
+	// std::cout << "Load Bouguet calib data\n" << "Enter filename ([ ]='" << kDefaultFilename << "'): ";;
+	// std::cin >> filename;
+	// if (filename.empty() || filename.size() == 1)
+	// 	filename = kDefaultFilename;
 
 	BouguetInterface b;
+	// b.loadCalib(filename);
 	auto map = b.loadCalib(filename);
 	mSystem->setCamera(*map->mCamera);
 	mSystem->setMap(std::move(map));
@@ -359,19 +361,20 @@ void MainWindow::loadValidationData()
 	//Mat filename
 	const std::string kDefaultFilename("calib_data.mat");
 	std::string filename;
-	std::cout << "Load validation data\n" << "Enter filename ([ ]='" << kDefaultFilename << "'): ";
-	std::cin >> answer;
-	if (answer.empty() || answer.size() == 1)
-		filename = kDefaultFilename;
-	else
-		filename = answer;
+	// std::cout << "Load validation data\n" << "Enter filename ([ ]='" << kDefaultFilename << "'): ";
+	// std::cin >> answer;
+	// if (answer.empty() || answer.size() == 1)
+	// 	filename = kDefaultFilename;
+	// else
+	// 	filename = answer;
 
 
 	BouguetInterface b;
-	auto map = b.loadValidation(mSystem->getCamera(), filename);
-	mSystem->setMap(std::move(map));
-	mSystem->doValidationBA();
-	updateState();
+	b.loadValidation(mSystem->getCamera(), filename);
+	// auto map = b.loadValidation(mSystem->getCamera(), filename);
+	// mSystem->setMap(std::move(map));
+	// mSystem->doValidationBA();
+	// updateState();
 }
 void MainWindow::doHomographyBA()
 {
