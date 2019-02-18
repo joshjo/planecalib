@@ -69,4 +69,4 @@ And the characteristic points for each video are:
 ### For video 2:
 
 <img src="img/hp.jpg" width="400">
-<img src="img/hp_db.jpg" width="400">
+<img src="img/mi_db.jpg" width="400">
